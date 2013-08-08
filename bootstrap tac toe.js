@@ -91,11 +91,8 @@ function computerMove(i,j) {
 	document.getElementById(divName).classList.remove("blank");
 	document.getElementById(divName).classList.add("O");
 }
-// checks for win condition and displays alert
 
-//tay - this is where the problem is, there seems to be some issue when it trys to do logic on the
-//diag and row/col arrays (on last loops of i and j).  im pretty sure all the loops are running from console.logging things
-//but the stuff dont work!
+// checks for win condition and displays alert
 function gameOver() {
 	//initialize diag counters 
 	var diag1X = 0;
@@ -119,7 +116,7 @@ function gameOver() {
 			diag2X++;
 		}	else if (gridArray[i][(2-i)] == "O"){
 			diag2O++;
-		}	else if (i == 2){
+		}	/* else */ if (i == 2){					// <--------------- here
 			if (diag1X == 3 || diag2X == 3) {
 				alert("X wins!!");
 			}
@@ -137,7 +134,7 @@ function gameOver() {
 				colX++;				
 			}	else if (gridArray[j][i] == "O"){
 				colO++; 					
-			} else if (j==2){
+			} /* else */if (j==2){					// <--------------- here
 				if (rowX == 3 || colX == 3){
 					alert("X wins!!");
 				} else if (rowO == 3 || colO == 3){
